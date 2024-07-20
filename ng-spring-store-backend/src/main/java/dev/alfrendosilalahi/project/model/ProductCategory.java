@@ -22,7 +22,7 @@ public class ProductCategory {
     private String categoryName;
 
     @ToString.Exclude
-    @OneToMany(mappedBy = "productCategory")
+    @OneToMany(mappedBy = "productCategory", cascade = CascadeType.ALL)
     private List<Product> products;
 
 }
