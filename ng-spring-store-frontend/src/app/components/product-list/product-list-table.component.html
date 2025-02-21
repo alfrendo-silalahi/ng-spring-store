@@ -1,0 +1,27 @@
+<table class="table">
+  <thead class="table-dark">
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Units in Stock</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (product of products(); track $index) {
+    <tr class="align-middle">
+      <td>
+        <img
+          src="https://alfrendo-silalahi-spring-boot-s3.s3.ap-southeast-1.amazonaws.com/ngstore/product/placeholder.png"
+          alt="{{ product.name }}"
+          height="50"
+          width="50"
+        />
+      </td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.unitPrice | currency : "USD" }}</td>
+      <td>{{ product.unitsInStock }}</td>
+    </tr>
+    }
+  </tbody>
+</table>
