@@ -7,7 +7,7 @@ import { CurrencyPipe } from '@angular/common';
   selector: 'app-product-list',
   standalone: true,
   imports: [CurrencyPipe],
-  templateUrl: './product-list-table.component.html',
+  templateUrl: './product-list-grid.component.html',
   styleUrl: './product-list.component.css',
 })
 export class ProductListComponent {
