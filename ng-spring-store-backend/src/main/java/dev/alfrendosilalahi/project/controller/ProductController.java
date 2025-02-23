@@ -2,6 +2,7 @@ package dev.alfrendosilalahi.project.controller;
 
 import dev.alfrendosilalahi.project.dto.request.ProductRequestDto;
 import dev.alfrendosilalahi.project.dto.response.ProductResponseDto;
+import dev.alfrendosilalahi.project.enums.SortDirEnum;
 import dev.alfrendosilalahi.project.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,8 +19,14 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping
-    public ResponseEntity<List<ProductResponseDto>> getProducts() {
-        return ResponseEntity.ok(productService.getProducts());
+    public ResponseEntity<List<ProductResponseDto>> getProducts(
+            @RequestParam(required = false, defaultValue = "1") int page,
+            @RequestParam(required = false, defaultValue = "10") int size,
+            @RequestParam(required = false, defaultValue = "id") String sortBy,
+            @RequestParam(required = false, defaultValue = "ASC") SortDirEnum sortDirEnum,
+            @RequestParam(required = false) Long categoryId
+    ) {
+        return ResponseEntity.ok(productService.getProducts(page, size, sortBy, sortDirEnum, categoryId));
     }
 
     @PostMapping

@@ -11,7 +11,9 @@ export class ProductService {
 
   private readonly httpClient: HttpClient = inject(HttpClient);
 
-  getProductList(): Observable<Product[]> {
-    return this.httpClient.get<Product[]>(this.baseUrl);
+  getProductList(categoryId: number): Observable<Product[]> {
+    return this.httpClient.get<Product[]>(
+      `${this.baseUrl}?categoryId=${categoryId}`,
+    );
   }
 }
