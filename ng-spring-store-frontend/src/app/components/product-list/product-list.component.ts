@@ -6,7 +6,6 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
-  standalone: true,
   imports: [CurrencyPipe],
   templateUrl: './product-list-grid.component.html',
   styleUrl: './product-list.component.css',

@@ -13,7 +13,7 @@ export class ProductService {
 
   getProductList(categoryId: number): Observable<Product[]> {
     return this.httpClient.get<Product[]>(
-      `${this.baseUrl}?categoryId=${categoryId}`,
+      `${this.baseUrl}?categoryId=${categoryId}`
     );
   }
 }
